@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Recherche avec ChatGPT</title>
+    <!-- Ajouter des liens vers des fichiers CSS pour le style -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Recherche avec ChatGPT</h1>
+    <form action="/traiter_formulaire" method="post">
+        <div>
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="recherche">Votre Recherche:</label>
+            <textarea id="recherche" name="recherche" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+
+        <!-- Élément pour afficher la réponse de GPT -->
+        <div id="reponseGPT" style="margin-top: 20px;"></div>
+
+        <!-- Ajouter un élément pour afficher les erreurs -->
+        <div id="erreur" style="color: red;"></div>
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            var formData = new FormData(this);
+            var formObject = {};
+            formData.forEach(function(value, key){
+                formObject[key] = value;
+            });
+            var formBody = Object.keys(formObject).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formObject[key])).join('&');
+    
+            fetch('/traiter_formulaire', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formBody
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('reponseGPT').innerText = data.reponseGPT;
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                document.getElementById('erreur').innerText = 'Une erreur s\'est produite lors de la requête.';
+            });
+        });
+    </script>
+    
+
+</body>
+</html>

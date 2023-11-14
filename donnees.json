@@ -1,0 +1,58 @@
+[
+  {
+    "nom": "aaa",
+    "prenom": "aaaa",
+    "email": "aaaa@zzz.dd",
+    "recherche": "ddddddd",
+    "reponse": "I'm sorry, but I couldn't understand your response. Can you please rephrase or provide more information?"
+  },
+  {
+    "nom": "aaa",
+    "prenom": "aaaa",
+    "email": "aaaa@zzz.dd",
+    "recherche": "ddddddd",
+    "reponse": "I'm sorry, but I'm not sure what you mean by \"ddddddd.\" Can you please provide more context or clarification?"
+  },
+  {
+    "nom": "ffdf",
+    "prenom": "dfdfdf",
+    "email": "fdfdf@feef.ff",
+    "recherche": "dfefefdf",
+    "reponse": "I'm sorry, but I'm unable to understand what you're asking. Could you please provide more information or clarify your question?"
+  },
+  {
+    "nom": "aaa",
+    "prenom": "aaa",
+    "email": "aaa@zzz.de",
+    "recherche": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" href=\"../Public/styles.css\">\n    <title>Chat GPT Clone</title>\n</head>\n<body>\n    <form action=\"/traitement\" method=\"post\" id=\"myForm\">\n        <div class=\"mainContainer\">\n            <h1>ChatGPT Clone</h1>\n            <div>\n                <input type=\"text\" id=\"firstname\" name=\"firstname\" placeholder=\"First name\" required>\n            </div>\n            <div>\n                <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"Name\" required>\n            </div>\n            <div>\n                <input type=\"text\" id=\"email\" name=\"email\" placeholder=\"email\" required>\n            </div>\n            <div>\n                <input type=\"text\" id=\"request\" name=\"request\" placeholder=\"Ask me anything...\" required>\n            </div>\n            <div>\n                <button name=\"submit\" id=\"submit\" type=\"submit\">Submit</button>\n            </div>\n            <div>\n                <h5>Powered by <a href=\"https://openai.com/\" target=\"_blank\"><span>OpenAI®</span></a></h5>\n            </div>\n        </div>\n        <div style=\"display: none;\" id=\"resultContainer\">\n            <textarea name=\"result\" id=\"result\" cols=\"30\" rows=\"10\"></textarea>\n        </div>\n    </form>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js\"></script>\n    <script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>\n    <script src=\"../Public/app.js\"></script>\n</body>\n</html>\n\nj'aimerai que tu fasses en sorte que la reponse soit affichée sur la meme page",
+    "reponse": "D'accord, pour afficher la réponse sur la même page, nous devons effectuer quelques modifications dans le code HTML et JavaScript.\n\nTout d'abord, nous devons ajouter un conteneur div pour afficher la réponse. Modifiez le code HTML comme suit :\n\n```html\n<div id=\"responseContainer\">\n    <h2>Response:</h2>\n    <p id=\"responseText\"></p>\n</div>\n```\n\nEnsuite, nous devons empêcher le formulaire de se soumettre normalement et envoyer la requête au serveur via JavaScript. Modifiez le code JavaScript comme suit :\n\n```javascript\n$(document).ready(function() {\n    // Empêcher le formulaire de se soumettre normalement\n    $('#myForm').submit(function(e) {\n        e.preventDefault();\n        \n        // Obtenir les valeurs des champs de saisie\n        var firstname = $('#firstname').val();\n        var name = $('#name').val();\n        var email = $('#email').val();\n        var request = $('#request').val();\n\n        // Envoyer une requête AJAX au serveur\n        $.ajax({\n            url: '/traitement',\n            method: 'POST',\n            data: {\n                firstname: firstname,\n                name: name,\n                email: email,\n                request: request\n            },\n            success: function(response) {\n                // Afficher la réponse dans le conteneur approprié\n                $('#responseText').text(response);\n                $('#responseContainer').show();\n            }\n        });\n    });\n});\n```\n\nCes modifications permettront d'envoyer une requête au serveur et d'afficher la réponse dans le conteneur de réponse spécifié.\n\nNotez que le code JavaScript suppose que vous avez inclus la bibliothèque jQuery dans votre projet.\n\nN'oubliez pas également de mettre à jour les chemins des fichiers CSS et JavaScript si nécessaire.\n\nJ'espère que cela vous aide !"
+  },
+  {
+    "nom": "fdfdfdf",
+    "prenom": "fdfdfd",
+    "email": "fdfdfd@rzrer.frfr",
+    "recherche": "frfrfrf",
+    "reponse": "I'm sorry, but I'm not sure what you meant by \"frfrfrf\". Could you please provide more context or clarify your request?"
+  },
+  {
+    "nom": "fdfdfdf",
+    "prenom": "fdfdfd",
+    "email": "fdfdfd@rzrer.frfr",
+    "recherche": "frfrfrf",
+    "reponse": "I'm sorry, but I don't understand what you're trying to say. Can you please provide more context or clarify your message?"
+  },
+  {
+    "nom": "fdfdfdf",
+    "prenom": "fdfdfd",
+    "email": "fdfdfd@rzrer.frfr",
+    "recherche": "frfrfrf",
+    "reponse": "I'm sorry, but I don't understand what you mean by \"frfrfrf\". Can you please provide more context or clarify your statement?"
+  },
+  {
+    "nom": "fdfdfdf",
+    "prenom": "fdfdfd",
+    "email": "fdfdfd@rzrer.frfr",
+    "recherche": "salut",
+    "reponse": "Bonjour! Comment puis-je vous aider aujourd'hui?"
+  }
+]
