@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 // Configuration de OpenAI
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: 'insererlaclé',
 });
 
 // Serveur les fichiers statiques
